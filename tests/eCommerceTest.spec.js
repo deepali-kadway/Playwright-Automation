@@ -28,6 +28,13 @@ test("eCommerce App Test", async ({ page }) => {
     }
   }
 
+  //OR instead of for, you can use method chaining:
+  await page
+    .locator(".card-body")
+    .filter({ hasText: "ADIDAS ORIGINAL" })
+    .getByRole("button", { name: "Add to Cart" })
+    .click();
+
   //Go to cart and checkout
   //This waits for the loading spinner to disappear before attempting the click.
   await expect(page.locator(".ngx-spinner-overlay")).toBeHidden();
