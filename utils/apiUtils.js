@@ -1,3 +1,5 @@
+const { expect } = require("@playwright/test");
+
 class apiUtils {
   //apiContext will be sent from WebApi.spec.js page and captured here in constructor
   constructor(apiContext, loginPayLoad) {
@@ -19,14 +21,14 @@ class apiUtils {
     return token;
   }
 
-  async createOrder(createPayload) {
+  async createOrder(orderPayLoad) {
     let response = {};
     response.token = await this.getToken();
     //headers are added as the browser should know to place order from the logged in token. As per api call of create, developer was passing authorization token as well, hence we added Authorization
     const orderResponse = await this.apiContext.post(
       "https://rahulshettyacademy.com/api/ecom/order/create-order",
       {
-        data: createPayload,
+        data: orderPayLoad,
         headers: {
           Authorization: response.token,
           "Content-Type": "application/json",
@@ -34,7 +36,18 @@ class apiUtils {
       }
     );
     const orderResponseJSON = await orderResponse.json();
-    console.log(orderResponseJSON);
+    console.log(
+      "Full API Response:",
+      JSON.stringify(orderResponseJSON, null, 2)
+    );
+
+    // Debug: Check if orders array exists
+    if (!orderResponseJSON.orders) {
+      console.log("ERROR: 'orders' property not found in response");
+      console.log("Available properties:", Object.keys(orderResponseJSON));
+      throw new Error("Orders array not found in API response");
+    }
+
     const orderId = orderResponseJSON.orders[0];
     response.orderId = orderId;
     return response;

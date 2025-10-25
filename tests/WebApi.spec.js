@@ -16,7 +16,7 @@ test.beforeAll(async () => {
   const ApiUtils = new apiUtils(apiContext, loginPayLoad); // Creates an instance of the custom apiUtils class. Parameters: apiContext: HTTP client for making requests.
   //loginPayload: user credentials for authentication.
   //Constructor: stores both parameters for later use
-  response = await apiUtils.createOrder(orderPayLoad); //Calls the createOrder method to create an order via API.
+  response = await ApiUtils.createOrder(orderPayLoad); //Calls the createOrder method to create an order via API.
 });
 
 test("eCommerce App Test", async ({ page }) => {
