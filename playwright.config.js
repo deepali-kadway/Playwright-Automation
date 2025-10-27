@@ -12,12 +12,28 @@ module.exports = defineConfig({
   },
 
   reporter: "html",
-  use: {
-    /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    browserName: "chromium",
-    headless: false,
-    screenshot: "on",
-    // trace: "on",
-    trace: "retain-on-failure", //traces will generate only in failure
-  },
+  projects: [
+    {
+      name: "chromium",
+      use: {
+        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+        browserName: "chromium",
+        headless: false,
+        screenshot: "on",
+        // trace: "on",
+        trace: "retain-on-failure", //traces will generate only in failure
+      },
+    },
+    {
+      name: "firefox",
+      use: {
+        /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
+        browserName: "firefox",
+        headless: true,
+        screenshot: "off",
+        // trace: "on",
+        trace: "retain-on-failure", //traces will generate only in failure
+      },
+    },
+  ],
 });
