@@ -20,8 +20,22 @@ module.exports = defineConfig({
         browserName: "chromium",
         headless: false,
         screenshot: "on",
+        ignoreHTTPSErrors: true,
+        permissions: ["geolocation"],
         // trace: "on",
         trace: "retain-on-failure", //traces will generate only in failure
+        viewport: { width: 720, height: 720 },
+      },
+    },
+    {
+      name: "safari",
+      use: {
+        browserName: "webkit",
+        headless: false,
+        screenshot: "off",
+        video: "retain-on-failure",
+        trace: "on",
+        ...devices["iPhone 11"], //webkit part of safari. Test on Apple devices using webkit
       },
     },
     {
