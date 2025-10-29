@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","583","@Web First Playwright Test","chromium","Wed Oct 29 11:52:49 MDT 2025","passed","Wed Oct 29 11:52:50 MDT 2025","","UIBasicsTest.spec.js","",""
+"","558","@Web First Playwright Test","safari","Wed Oct 29 11:52:49 MDT 2025","passed","Wed Oct 29 11:52:50 MDT 2025","","UIBasicsTest.spec.js","",""
+"","1234","@Web First Playwright Test","firefox","Wed Oct 29 11:52:49 MDT 2025","passed","Wed Oct 29 11:52:51 MDT 2025","","UIBasicsTest.spec.js","",""
