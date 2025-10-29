@@ -1,13 +1,14 @@
 const { test, expect } = require("@playwright/test"); //imported annotation and named it as 'test'
 
+test.describe.configure({ mode: "parallel" });
 //test annotation takes two arguments
 // First: actual test case name
 // Second: test function
-test("First Playwright Test", async ({ browser }) => {
+test("@Web First Playwright Test", async ({ browser }) => {
   //chrome - plugins/ cookies
   const context = await browser.newContext(); //creates a new browser context. A context is like an incognito session - it's isolated with its own cookies, local storage, and session data.
   const page = await context.newPage(); //creates a new tab withing that context
-  await page.goto("http:hunkidori.in"); //Navigates to specified URL
+  await page.goto("https://example.com"); //Navigates to specified URL
   await context.close(); // manual cleanup
 });
 

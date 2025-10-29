@@ -4,13 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
- 
+    "webTests": "npx playwright test --grep @Web",
+    "regression": "npx playwright test",
+    "SafariNewConfig": "npx playwright test --config playwright.config.js --project=safari"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.56.0",
-    "@types/node": "^24.7.2"
+    "@types/node": "^24.7.2",
+    "allure": "^3.0.0-beta.20",
+    "allure-playwright": "^3.4.2"
   }
 }
